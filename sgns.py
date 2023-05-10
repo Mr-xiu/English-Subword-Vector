@@ -50,8 +50,9 @@ class SGNS:
             # 进行二次采样
             self.subsampling()
             # 构建数据集
-            self.build_data(window_size, negative_sample_num)
-
+            # self.build_data(window_size, negative_sample_num)
+            self.dataset = SkipGramDataset(self.corpus, window_size, negative_sample_num)  # 设置数据集
+            self.dataloader = DataLoader(self.dataset, batch_size=512, shuffle=True)
         self.model = SkipGram(self.vocab_size, embedding_size).to(self.device)
 
     def preprocess_corpus(self):
@@ -74,10 +75,10 @@ class SGNS:
                 self.freq_dict[word] += 1
 
         # 按照词频排序
-        self.freq_dict = sorted(self.freq_dict.items(), key=lambda x: x[1], reverse=True)
+        temp_dict = sorted(self.freq_dict.items(), key=lambda x: x[1], reverse=True)
 
         # 构建ID（频率越高id越小）
-        for word, _ in self.freq_dict:
+        for word, _ in temp_dict:
             my_id = len(self.word2id_dict)
             # print(word, _)
             self.word2id_dict[word] = my_id
@@ -94,42 +95,6 @@ class SGNS:
             # 若不丢弃
             if not drop:
                 self.corpus.append(self.word2id_dict[word])
-
-    def build_data(self, window_size, negative_sample_num):
-        """
-        采样数据集
-        :param window_size: window_size代表了window_size的大小，程序会根据window_size从左到右扫描整个语料
-        :param negative_sample_num: negative_sample_num代表了对于每个正样本，我们需要随机采样多少负样本用于训练
-        :return:
-        """
-        dataset = []
-        for line_corpus in self.corpus:
-            # 从左到右，枚举每个中心点的位置
-            for center_word_idx in range(len(line_corpus)):
-                # 当前的中心词
-                center_word = line_corpus[center_word_idx]
-                # 以中心词为中心，将左右两侧在窗口内的词均看为正样本
-                positive_word_range = (
-                    max(0, center_word_idx - window_size), min(len(line_corpus) - 1, center_word_idx + window_size))
-                positive_word_set = set(
-                    [line_corpus[idx] for idx in range(positive_word_range[0], positive_word_range[1] + 1) if
-                     idx != center_word_idx])
-                # 对于每个正样本，随机采样negative_sample_num个负样本进行训练
-                for positive_word in positive_word_set:
-                    # 先加入正样本
-                    dataset.append((center_word, positive_word, 1))
-
-                    # 开始负采样
-                    i = 0
-                    while i < negative_sample_num:
-                        negative_word = random.randint(0, self.vocab_size - 1)
-                        if negative_word not in positive_word_set:
-                            # 加入负样本
-                            dataset.append((center_word, negative_word, 0))
-                            i += 1
-
-        self.dataset = SkipGramDataset(dataset)  # 设置数据集
-        self.dataloader = DataLoader(self.dataset, batch_size=512, shuffle=True)
 
     def train(self, epoch_num, save_path='model/SGNS.pth'):
         """
@@ -180,8 +145,8 @@ class SGNS:
         return cos_sim
 
 
-def test_sgns(has_train=True, epoch_num=5, model_path='model/SGNS.pth', test_path='data/pku_sim_test.txt',
-              result_path='data/sgns_result.txt'):
+def get_sgns_result(has_train=True, epoch_num=5, model_path='model/SGNS.pth', test_path='data/wordsim353_agreed.txt',
+                    result_path='data/sgns_result.txt'):
     """
     在pku_sim_test.txt中测试训练模型表现的方法
     :param has_train: 若为True，表示模型已经训练成功，不进行二次采样与构建dataloader（省内存）
@@ -218,4 +183,4 @@ def test_sgns(has_train=True, epoch_num=5, model_path='model/SGNS.pth', test_pat
 
 
 if __name__ == "__main__":
-    test_sgns(has_train=True, test_path='data/pku_sim_test.txt')
+    get_sgns_result(has_train=False, test_path='data/wordsim353_agreed.txt', epoch_num=20)

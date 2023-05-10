@@ -1,5 +1,6 @@
 import torch
 from torch.utils.data import Dataset
+import random
 
 
 class SkipGram(torch.nn.Module):
@@ -68,19 +69,51 @@ class SkipGram(torch.nn.Module):
 
 
 class SkipGramDataset(Dataset):
-    def __init__(self, dataset):
+    def __init__(self, corpus, window_size, negative_sample_num):
         """
         初始化数据集的方法
-        :param dataset: 传入的数据集
+        :param corpus: 传入语料
+        :param window_size: window_size代表了window_size的大小，程序会根据window_size从左到右扫描整个语料
+        :param negative_sample_num: negative_sample_num代表了对于每个正样本，我们需要随机采样多少负样本用于训练
         """
-        self.dataset = dataset
+        self.corpus = corpus
+        self.window_size = window_size
+        self.negative_sample_num = negative_sample_num
+        # 先构建正样本表，避免随机选择负样本时误选择到正样本
+        self.positive_target = dict()
+        for index in range(len(corpus)):
+            positive_word_range = (max(0, index - window_size), min(len(corpus) - 1, index + window_size))
+            if not corpus[index] in self.positive_target:
+                self.positive_target[corpus[index]] = set()
+            for i in range(positive_word_range[0], positive_word_range[1] + 1):
+                self.positive_target[corpus[index]].add(corpus[i])
 
     def __len__(self):
-        return len(self.dataset)
+        return len(self.corpus) * (2 * self.window_size + self.negative_sample_num)
 
     def __getitem__(self, index):
         """
         读取数据集中的项目
         """
-        center_word, target_word, label = self.dataset[index]
-        return center_word, target_word, label
+        if index < len(self.corpus) * 2 * self.window_size:
+            # 正样本定义域，根据 window_size 均匀划分，
+            # 从而选择唯一的 center_word 与 target_word
+            center_index = index // (2 * self.window_size)
+            shift_index = index % (2 * self.window_size) - self.window_size
+            if shift_index >= 0:
+                shift_index += 1
+            target_index = max(0, min(len(self.corpus) - 1, center_index + shift_index))
+            if target_index == center_index:
+                if target_index - 1 >= 0:
+                    target_index -= 1
+                else:
+                    target_index += 1
+            return self.corpus[center_index], self.corpus[target_index], 1
+        else:
+            # 负样本定义域
+            # 根据 negative_size 找到唯一 center_word，并随机采集负样本
+            center_index = (index - len(self.corpus) * 2 * self.window_size) // self.negative_sample_num
+            while True:
+                target_index = random.randint(0, len(self.corpus) - 1)
+                if self.corpus[target_index] not in self.positive_target[self.corpus[center_index]]:
+                    return self.corpus[center_index], self.corpus[target_index], 0
