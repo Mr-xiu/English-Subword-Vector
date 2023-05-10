@@ -6,7 +6,7 @@ class SVD:
     SVD类
     """
 
-    def __init__(self, train_path: str = 'data/corpus.txt', vocab_max_size=10000):
+    def __init__(self, train_path: str = 'data/text8.txt', vocab_max_size=10000):
         """
         初始化的方法
         :param train_path: 训练语料的位置
@@ -16,7 +16,7 @@ class SVD:
         self.corpus = []  # 语料列表（每一项为每一行的语料）
         # 先读取语料
         with open(train_path, 'r', encoding='UTF-8') as f:
-            self.corpus = f.readlines()
+            self.corpus = f.read().strip("\n")
             f.close()
 
         # 预处理语料
@@ -37,42 +37,26 @@ class SVD:
         """
         预处理语料的方法
         """
-        # 符号表
-        symbol_set = {'。', '，', '？', '！', '；', '：', '、', '（', '）', '「', '」', '“', '”', '‘', '’', '《', '》', '【', '】',
-                      '…', '—', '～', '　', '.', ',', '?', '!', ';', ':', '(', ')', '"', '"', '\'', '\'', '<', '>', '[',
-                      ']', '...', '~', '*'}
-
-        for i in range(len(self.corpus)):
-            line_list = self.corpus[i].strip('\n').split()
-            # print('，'.join(line_list))
-            self.corpus[i] = []
-            for word in line_list:
-                # 除去符号表中的元素
-                if word not in symbol_set:
-                    self.corpus[i].append(word)
-            # print('，'.join(corpus[i]))
-
-        return self.corpus
+        self.corpus = self.corpus.strip().lower()
+        self.corpus = self.corpus.split(" ")
 
     def create_id(self):
         """
         为语料中的每个词根据出现的频率构建ID
         """
         # 遍历每行的语料
-        for line_corpus in self.corpus:
-            # 遍历每个词
-            for word in line_corpus:
-                self.corpus_size += 1
-                if word not in self.freq_dict:
-                    self.freq_dict[word] = 1
-                else:
-                    self.freq_dict[word] += 1
+        for word in self.corpus:
+            self.corpus_size += 1
+            if word not in self.freq_dict:
+                self.freq_dict[word] = 1
+            else:
+                self.freq_dict[word] += 1
 
         # 按照词频排序
-        sort_dict = sorted(self.freq_dict.items(), key=lambda x: x[1], reverse=True)
+        self.freq_dict = sorted(self.freq_dict.items(), key=lambda x: x[1], reverse=True)
 
         # 构建ID（频率越高id越小）
-        for word, _ in sort_dict:
+        for word, _ in self.freq_dict:
             my_id = len(self.word2id_dict)
             # print(word, _)
             self.word2id_dict[word] = my_id
@@ -87,20 +71,19 @@ class SVD:
         """
         # 初始化共现矩阵
         co_matrix = np.zeros((self.vocab_size, self.vocab_size), dtype='uint16')
-        for line_corpus in self.corpus:
-            # 从左到右，枚举每个中心点的位置
-            for center_word_idx in range(len(line_corpus)):
-                # 当前的中心词
-                center_word = line_corpus[center_word_idx]
-                if self.word2id_dict[center_word] >= self.vocab_size:
-                    continue
-                # 上下文词列表
-                context_words_list = line_corpus[max(0, center_word_idx - window_size): center_word_idx] + line_corpus[
-                                                                                                           center_word_idx + 1: center_word_idx + window_size + 1]
-                # 更新共现矩阵
-                for context_word in context_words_list:
-                    if self.word2id_dict[context_word] < self.vocab_size:
-                        co_matrix[self.word2id_dict[center_word], self.word2id_dict[context_word]] += 1
+        # 从左到右，枚举每个中心点的位置
+        for center_word_idx in range(len(self.corpus)):
+            # 当前的中心词
+            center_word = self.corpus[center_word_idx]
+            if self.word2id_dict[center_word] >= self.vocab_size:
+                continue
+            # 上下文词列表
+            context_words_list = self.corpus[max(0, center_word_idx - window_size): center_word_idx] + self.corpus[
+                                                                                                       center_word_idx + 1: center_word_idx + window_size + 1]
+            # 更新共现矩阵
+            for context_word in context_words_list:
+                if self.word2id_dict[context_word] < self.vocab_size:
+                    co_matrix[self.word2id_dict[center_word], self.word2id_dict[context_word]] += 1
         print('构建共现矩阵完成，开始进行SVD分解~')
         # 对共现矩阵进行SVD分解，得到U、Σ和V矩阵
         U, S, V = np.linalg.svd(co_matrix)
@@ -132,7 +115,7 @@ class SVD:
 
 
 def get_svd_result(has_train=True, vocab_max_size=10000, vector_dim=100, window_size=5, model_path='model/svd.npy',
-                   test_path='data/pku_sim_test.txt',
+                   test_path='data/wordsim353_agreed.txt',
                    result_path='data/svd_result.txt'):
     """
     在pku_sim_test.txt中测试训练模型表现的方法
@@ -145,11 +128,11 @@ def get_svd_result(has_train=True, vocab_max_size=10000, vector_dim=100, window_
     :param result_path: 测试结果文件保存的位置
     """
     if not has_train:
-        svd = SVD(train_path='data/corpus.txt', vocab_max_size=vocab_max_size)
+        svd = SVD(train_path='data/text8.txt', vocab_max_size=vocab_max_size)
         svd.build_svd_vector(save_path=model_path, vector_dim=vector_dim, window_size=window_size)
     else:
         # 读取模型
-        svd = SVD(train_path='data/corpus.txt', vocab_max_size=vocab_max_size)
+        svd = SVD(train_path='data/text8.txt', vocab_max_size=vocab_max_size)
         svd.load_svd_vector(model_path)
 
     # 读取测试文本
@@ -162,12 +145,12 @@ def get_svd_result(has_train=True, vocab_max_size=10000, vector_dim=100, window_
         line = test_lines[i].strip('\n').split('\t')
         if len(line) == 0:
             continue
-        word1 = line[0]
-        word2 = line[1]
+        word1 = line[1]
+        word2 = line[2]
         sim_sgns = svd.get_cos_sim(word1, word2)
         f.write(f'{word1}\t{word2}\t{sim_sgns:.4f}\n')
     f.close()
 
 
 if __name__ == "__main__":
-    get_svd_result(has_train=True, test_path='data/pku_sim_test.txt', vocab_max_size=20000)
+    get_svd_result(has_train=True, test_path='data/wordsim353_agreed.txt', vocab_max_size=20000)

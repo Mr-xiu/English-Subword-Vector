@@ -227,12 +227,12 @@ def test_sgns(has_train=True, epoch_num=5, model_path='model/SGNS.pth', test_pat
         line = test_lines[i].strip('\n').split('\t')
         if len(line) == 0:
             continue
-        word1 = line[0]
-        word2 = line[1]
+        word1 = line[1]
+        word2 = line[2]
         sim_sgns = my_sgns.get_cos_sim(word1, word2)
         f.write(f'{word1}\t{word2}\t{sim_sgns:.4f}\n')
     f.close()
 
 
 if __name__ == "__main__":
-    test_sgns(test_path='data/pku_sim_test.txt')
+    test_sgns(has_train=True, test_path='data/pku_sim_test.txt')
