@@ -13,7 +13,7 @@ class SGNS:
     SGNS类，即基于 Skip-Gram with Negative Sampling (SGNS) 的汉语词向量处理类
     """
 
-    def __init__(self, train_path: str = 'data/corpus.txt', window_size=2, negative_sample_num=4, embedding_size=100,
+    def __init__(self, train_path: str = 'data/text8.txt', window_size=2, negative_sample_num=4, embedding_size=100,
                  device='cpu', has_train=False):
         """
         初始化的方法
@@ -28,10 +28,10 @@ class SGNS:
         self.dataset = None  # 数据集
         self.dataloader = None
         self.device = device
-        self.corpus = []  # 语料列表（每一项为每一行的语料）
+        self.corpus = []  # 语料列表
         # 先读取语料
         with open(train_path, 'r', encoding='UTF-8') as f:
-            self.corpus = f.readlines()
+            self.corpus = f.read().strip("\n")
             f.close()
 
         # 预处理语料
@@ -58,41 +58,26 @@ class SGNS:
         """
         预处理语料的方法
         """
-        # 符号表
-        symbol_set = {'。', '，', '？', '！', '；', '：', '、', '（', '）', '「', '」', '“', '”', '‘', '’', '《', '》', '【', '】',
-                      '…', '—', '～', '　', '.', ',', '?', '!', ';', ':', '(', ')', '"', '"', '\'', '\'', '<', '>', '[',
-                      ']', '...', '~', '*'}
-
-        for i in range(len(self.corpus)):
-            line_list = self.corpus[i].strip('\n').split()
-            # print('，'.join(line_list))
-            self.corpus[i] = []
-            for word in line_list:
-                # 除去符号表中的元素
-                if word not in symbol_set:
-                    self.corpus[i].append(word)
-            # print('，'.join(corpus[i]))
-
-        return self.corpus
+        self.corpus = self.corpus.strip().lower()
+        self.corpus = self.corpus.split(" ")
 
     def create_id(self):
         """
         为语料中的每个词根据出现的频率构建ID
         """
         # 遍历每行的语料
-        for line_corpus in self.corpus:
-            # 遍历每个词
-            for word in line_corpus:
-                self.corpus_size += 1
-                if word not in self.freq_dict:
-                    self.freq_dict[word] = 1
-                else:
-                    self.freq_dict[word] += 1
+        for word in self.corpus:
+            self.corpus_size += 1
+            if word not in self.freq_dict:
+                self.freq_dict[word] = 1
+            else:
+                self.freq_dict[word] += 1
+
         # 按照词频排序
-        sort_dict = sorted(self.freq_dict.items(), key=lambda x: x[1], reverse=True)
+        self.freq_dict = sorted(self.freq_dict.items(), key=lambda x: x[1], reverse=True)
 
         # 构建ID（频率越高id越小）
-        for word, _ in sort_dict:
+        for word, _ in self.freq_dict:
             my_id = len(self.word2id_dict)
             # print(word, _)
             self.word2id_dict[word] = my_id
@@ -102,15 +87,13 @@ class SGNS:
         """
         二次采样算法，二次采样的同时将语料转换为id序列
         """
-        for i in range(len(self.corpus)):
-            line_corpus = self.corpus[i]
-            self.corpus[i] = []
-            for word in line_corpus:
-
-                drop = random.uniform(0, 1) < 1 - math.sqrt(1e-4 / self.freq_dict[word] * self.corpus_size)
-                # 若不丢弃
-                if not drop:
-                    self.corpus[i].append(self.word2id_dict[word])
+        temp_corpus = self.corpus
+        self.corpus = []
+        for word in temp_corpus:
+            drop = random.uniform(0, 1) < 1 - math.sqrt(1e-4 / self.freq_dict[word] * self.corpus_size)
+            # 若不丢弃
+            if not drop:
+                self.corpus.append(self.word2id_dict[word])
 
     def build_data(self, window_size, negative_sample_num):
         """
