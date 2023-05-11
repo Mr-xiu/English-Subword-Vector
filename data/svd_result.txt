@@ -1,352 +1,352 @@
-love	sex	0.2986
-tiger	cat	0.6684
-tiger	tiger	1.0000
-book	paper	0.4118
-computer	keyboard	0.6137
-computer	internet	0.6000
-plane	car	0.4560
-train	car	0.2847
-telephone	communication	0.6500
-television	radio	0.8157
-media	radio	0.5026
-drug	abuse	0.4495
-bread	butter	0.6205
-cucumber	potato	0.2698
-doctor	nurse	0.2019
-professor	doctor	0.1457
-student	professor	0.7210
-smart	student	0.0924
-smart	stupid	0.3952
-company	stock	0.2108
-stock	market	0.3060
-stock	phone	0.3582
-stock	CD	0.0000
-stock	jaguar	0.1930
-stock	egg	0.0224
-fertility	egg	0.0611
-stock	live	0.3021
-stock	life	0.0606
-book	library	0.2301
-bank	money	0.1609
-wood	forest	0.0967
-money	cash	0.3821
-professor	cucumber	0.0573
-king	cabbage	0.0817
-king	queen	0.7694
-king	rook	0.0829
-bishop	rabbi	0.4879
-Jerusalem	Israel	0.0000
-Jerusalem	Palestinian	0.0000
-holy	sex	0.0724
-fuck	sex	-0.0473
-Maradona	football	0.0000
-football	soccer	0.9166
-football	basketball	0.9398
-football	tennis	0.8297
-tennis	racket	0.3295
-Arafat	peace	0.0000
-Arafat	terror	0.0000
-Arafat	Jackson	0.0000
-law	lawyer	0.1860
-movie	star	0.7489
-movie	popcorn	-0.0008
-movie	critic	0.1136
-movie	theater	0.4859
-physics	proton	0.2288
-physics	chemistry	0.9210
-space	chemistry	0.3676
-alcohol	chemistry	0.1310
-vodka	gin	0.1541
-vodka	brandy	0.3758
-drink	car	0.1588
-drink	ear	0.1853
-drink	mouth	0.3207
-drink	eat	0.5781
-baby	mother	0.5208
-drink	mother	0.1492
-car	automobile	0.2531
-gem	jewel	0.3285
-journey	voyage	0.7790
-boy	lad	0.0656
-coast	shore	0.8962
-asylum	madhouse	-0.0493
-magician	wizard	0.2856
-midday	noon	0.6773
-furnace	stove	0.1997
-food	fruit	0.5873
-bird	cock	0.0409
-bird	crane	0.3528
-tool	implement	0.1684
-brother	monk	0.0771
-crane	implement	-0.2897
-lad	brother	-0.0378
-journey	car	0.0165
-monk	oracle	0.2583
-cemetery	woodland	0.0685
-food	rooster	0.2425
-coast	hill	0.6208
-forest	graveyard	0.3133
-shore	woodland	-0.1928
-monk	slave	0.3186
-coast	forest	0.1314
-lad	wizard	0.0900
-chord	smile	0.1429
-glass	magician	0.1966
-noon	string	-0.0381
-rooster	voyage	0.0378
-money	dollar	0.0625
-money	currency	0.2286
-money	wealth	0.3700
-money	property	0.3238
-money	possession	0.2346
-money	bank	0.1609
-money	deposit	0.1286
-money	withdrawal	0.3677
-money	laundering	0.3406
-money	operation	-0.0124
-tiger	jaguar	0.5102
-tiger	feline	0.3167
-tiger	carnivore	-0.0243
-tiger	mammal	-0.1749
-tiger	animal	0.0911
-tiger	organism	0.0273
-tiger	fauna	0.0348
-tiger	zoo	0.3515
-psychology	psychiatry	0.4318
-psychology	anxiety	0.2251
-psychology	fear	0.0247
-psychology	depression	0.2129
-psychology	clinic	0.1368
-psychology	doctor	0.1423
-psychology	Freud	0.0000
-psychology	mind	0.4535
-psychology	health	0.5647
-psychology	science	0.8251
-psychology	discipline	0.5944
-psychology	cognition	0.6730
-planet	star	0.5171
-planet	constellation	0.0659
-planet	moon	0.7998
-planet	sun	0.4096
-planet	galaxy	0.3995
-planet	space	0.1694
-planet	astronomer	0.0391
-precedent	example	0.4399
-precedent	information	0.2813
-precedent	cognition	0.0965
-precedent	law	0.2494
-precedent	collection	0.0260
-precedent	group	0.1712
-precedent	antecedent	0.0564
-cup	coffee	0.1626
-cup	tableware	0.0000
-cup	article	-0.0726
-cup	artifact	-0.0182
-cup	object	-0.0201
-cup	entity	0.0995
-cup	drink	0.1406
-cup	food	0.0642
-cup	substance	0.0121
-cup	liquid	-0.0082
-jaguar	cat	0.2245
-jaguar	car	0.4470
-energy	secretary	0.1387
-secretary	senate	0.5497
-energy	laboratory	0.1256
-computer	laboratory	0.2276
-weapon	secret	0.1736
-FBI	fingerprint	0.0000
-FBI	investigation	0.0000
-investigation	effort	0.5987
-Mars	water	0.0000
-Mars	scientist	0.0000
-news	report	0.4811
-canyon	landscape	-0.0613
-image	surface	0.3436
-discovery	space	-0.0784
-water	seepage	0.0000
-sign	recess	-0.3145
-Wednesday	news	0.0000
-mile	kilometer	0.4883
-computer	news	0.2052
-territory	surface	0.3536
-atmosphere	landscape	0.1365
-president	medal	0.1873
-war	troops	0.1002
-record	number	0.2442
-skin	eye	0.4170
-Japanese	American	0.0000
-theater	history	0.1131
-volunteer	motto	0.1833
-prejudice	recognition	-0.0031
-decoration	valor	0.3976
-century	year	0.0745
-century	nation	0.0020
-delay	racism	0.1641
-delay	news	-0.2661
-minister	party	0.1351
-peace	plan	0.1889
-minority	peace	-0.0410
-attempt	peace	-0.0764
-government	crisis	0.4322
-deployment	departure	-0.0190
-deployment	withdrawal	0.0999
-energy	crisis	0.0377
-announcement	news	-0.0065
-announcement	effort	0.4479
-stroke	hospital	0.0857
-disability	death	-0.0055
-victim	emergency	-0.0060
-treatment	recovery	0.2478
-journal	association	0.4119
-doctor	personnel	-0.2206
-doctor	liability	0.0385
-liability	insurance	0.3466
-school	center	0.4816
-reason	hypertension	0.0049
-reason	criterion	0.6988
-hundred	percent	-0.1399
-Harvard	Yale	0.0000
-hospital	infrastructure	0.2198
-death	row	-0.0916
-death	inmate	-0.3931
-lawyer	evidence	-0.0648
-life	death	0.6755
-life	term	-0.0210
-word	similarity	-0.0755
-board	recommendation	0.5014
-governor	interview	-0.1063
-OPEC	country	0.0000
-peace	atmosphere	-0.0380
-peace	insurance	0.0577
-territory	kilometer	0.0147
-travel	activity	0.0596
-competition	price	0.1302
-consumer	confidence	0.1755
-consumer	energy	0.3964
-problem	airport	-0.2178
-car	flight	0.2302
-credit	card	0.0540
-credit	information	0.1669
-hotel	reservation	0.0877
-grocery	money	0.1649
-registration	arrangement	-0.1318
-arrangement	accommodation	0.3266
-month	hotel	-0.0615
-type	kind	0.8399
-arrival	hotel	0.0291
-bed	closet	0.1190
-closet	clothes	0.0220
-situation	conclusion	0.3512
-situation	isolation	0.1433
-impartiality	interest	0.2965
-direction	combination	-0.0160
-street	place	0.4712
-street	avenue	0.7819
-street	block	0.1498
-street	children	-0.0040
-listing	proximity	-0.0967
-listing	category	-0.0766
-cell	phone	0.3867
-production	hike	0.1541
-benchmark	index	0.0510
-media	trading	0.0478
-media	gain	0.0689
-dividend	payment	0.3287
-dividend	calculation	0.1009
-calculation	computation	0.4930
-currency	market	0.2808
-OPEC	oil	0.0000
-oil	stock	0.3967
-announcement	production	-0.0100
-announcement	warning	0.3395
-profit	warning	-0.0533
-profit	loss	0.0710
-dollar	yen	0.3028
-dollar	buck	-0.1637
-dollar	profit	0.1761
-dollar	loss	-0.0864
-computer	software	0.8458
-network	hardware	0.6734
-phone	equipment	0.3747
-equipment	maker	-0.0725
-luxury	car	0.3902
-five	month	-0.0505
-report	gain	0.1291
-investor	earning	-0.0560
-liquid	water	0.6977
-baseball	season	0.5220
-game	victory	0.1181
-game	team	0.6951
-marathon	sprint	-0.1992
-game	series	0.8085
-game	defeat	-0.0934
-seven	series	0.0025
-seafood	sea	-0.0866
-seafood	food	0.4075
-seafood	lobster	0.5201
-lobster	food	0.1649
-lobster	wine	0.4526
-food	preparation	0.6694
-video	archive	0.4029
-start	year	0.0431
-start	match	0.3718
-game	round	0.6062
-boxing	round	0.3772
-championship	tournament	0.8105
-fighting	defeating	0.3523
-line	insurance	-0.0818
-day	summer	0.3195
-summer	drought	0.3378
-summer	nature	-0.1650
-day	dawn	-0.0387
-nature	environment	0.1664
-environment	ecology	0.2402
-nature	man	0.0679
-man	woman	0.6239
-man	governor	0.0501
-murder	manslaughter	0.2746
-soap	opera	0.1474
-opera	performance	0.3152
-life	lesson	-0.0569
-focus	life	0.1253
-production	crew	0.0172
-television	film	0.8372
-lover	quarrel	0.2362
-viewer	serial	0.3415
-possibility	girl	-0.2245
-population	development	0.1151
-morality	importance	0.2148
-morality	marriage	0.2670
-Mexico	Brazil	0.0000
-gender	equality	0.1815
-change	attitude	0.2591
-family	planning	-0.0894
-opera	industry	0.3366
-sugar	approach	0.0339
-practice	institution	0.0190
-ministry	culture	-0.0047
-problem	challenge	0.2550
-size	prominence	0.0831
-country	citizen	0.1358
-planet	people	0.1441
-development	issue	0.2759
-experience	music	0.1432
-music	project	0.0220
-glass	metal	0.7321
-aluminum	metal	0.3681
-chance	credibility	0.0719
-exhibit	memorabilia	0.0617
-concert	virtuoso	0.4305
-rock	jazz	0.7741
-museum	theater	0.5933
-observation	architecture	0.1431
-space	world	0.0517
-preservation	world	0.0046
-admission	ticket	0.2369
-shower	thunderstorm	0.0651
-shower	flood	0.0324
-weather	forecast	0.2456
-disaster	area	0.3411
-governor	office	0.4291
-architecture	century	0.0272
+love	sex	6.77	6.49
+tiger	cat	7.35	8.34
+tiger	tiger	10.00	10.00
+book	paper	7.46	7.06
+computer	keyboard	7.62	8.07
+computer	internet	7.58	8.00
+plane	car	5.77	7.28
+train	car	6.31	6.42
+telephone	communication	7.50	8.25
+television	radio	6.77	9.08
+media	radio	7.42	7.51
+drug	abuse	6.85	7.25
+bread	butter	6.19	8.10
+cucumber	potato	5.92	6.35
+doctor	nurse	7.00	6.01
+professor	doctor	6.62	5.73
+student	professor	6.81	8.61
+smart	student	4.62	5.46
+smart	stupid	5.81	6.98
+company	stock	7.08	6.05
+stock	market	8.08	6.53
+stock	phone	1.62	6.79
+stock	CD	1.31	5.00
+stock	jaguar	0.92	5.96
+stock	egg	1.81	5.11
+fertility	egg	6.69	5.31
+stock	live	3.73	6.51
+stock	life	0.92	5.30
+book	library	7.46	6.15
+bank	money	8.12	5.80
+wood	forest	7.73	5.48
+money	cash	9.15	6.91
+professor	cucumber	0.31	5.29
+king	cabbage	0.23	5.41
+king	queen	8.58	8.85
+king	rook	5.92	5.41
+bishop	rabbi	6.69	7.44
+Jerusalem	Israel	8.46	5.00
+Jerusalem	Palestinian	7.65	5.00
+holy	sex	1.62	5.36
+fuck	sex	9.44	4.76
+Maradona	football	8.62	5.00
+football	soccer	9.03	9.58
+football	basketball	6.81	9.70
+football	tennis	6.63	9.15
+tennis	racket	7.56	6.65
+Arafat	peace	6.73	5.00
+Arafat	terror	7.65	5.00
+Arafat	Jackson	2.50	5.00
+law	lawyer	8.38	5.93
+movie	star	7.38	8.74
+movie	popcorn	6.19	5.00
+movie	critic	6.73	5.57
+movie	theater	7.92	7.43
+physics	proton	8.12	6.14
+physics	chemistry	7.35	9.60
+space	chemistry	4.88	6.84
+alcohol	chemistry	5.54	5.65
+vodka	gin	8.46	5.77
+vodka	brandy	8.13	6.88
+drink	car	3.04	5.79
+drink	ear	1.31	5.93
+drink	mouth	5.96	6.60
+drink	eat	6.87	7.89
+baby	mother	7.85	7.60
+drink	mother	2.65	5.75
+car	automobile	8.94	6.27
+gem	jewel	8.96	6.64
+journey	voyage	9.29	8.89
+boy	lad	8.83	5.33
+coast	shore	9.10	9.48
+asylum	madhouse	8.87	4.75
+magician	wizard	9.02	6.43
+midday	noon	9.29	8.39
+furnace	stove	8.79	6.00
+food	fruit	7.52	7.94
+bird	cock	7.10	5.20
+bird	crane	7.38	6.76
+tool	implement	6.46	5.84
+brother	monk	6.27	5.39
+crane	implement	2.69	3.55
+lad	brother	4.46	4.81
+journey	car	5.85	5.08
+monk	oracle	5.00	6.29
+cemetery	woodland	2.08	5.34
+food	rooster	4.42	6.21
+coast	hill	4.38	8.10
+forest	graveyard	1.85	6.57
+shore	woodland	3.08	4.04
+monk	slave	0.92	6.59
+coast	forest	3.15	5.66
+lad	wizard	0.92	5.45
+chord	smile	0.54	5.71
+glass	magician	2.08	5.98
+noon	string	0.54	4.81
+rooster	voyage	0.62	5.19
+money	dollar	8.42	5.31
+money	currency	9.04	6.14
+money	wealth	8.27	6.85
+money	property	7.57	6.62
+money	possession	7.29	6.17
+money	bank	8.50	5.80
+money	deposit	7.73	5.64
+money	withdrawal	6.88	6.84
+money	laundering	5.65	6.70
+money	operation	3.31	4.94
+tiger	jaguar	8.00	7.55
+tiger	feline	8.00	6.58
+tiger	carnivore	7.08	4.88
+tiger	mammal	6.85	4.13
+tiger	animal	7.00	5.46
+tiger	organism	4.77	5.14
+tiger	fauna	5.62	5.17
+tiger	zoo	5.87	6.76
+psychology	psychiatry	8.08	7.16
+psychology	anxiety	7.00	6.13
+psychology	fear	6.85	5.12
+psychology	depression	7.42	6.06
+psychology	clinic	6.58	5.68
+psychology	doctor	6.42	5.71
+psychology	Freud	8.21	5.00
+psychology	mind	7.69	7.27
+psychology	health	7.23	7.82
+psychology	science	6.71	9.13
+psychology	discipline	5.58	7.97
+psychology	cognition	7.48	8.36
+planet	star	8.45	7.59
+planet	constellation	8.06	5.33
+planet	moon	8.08	9.00
+planet	sun	8.02	7.05
+planet	galaxy	8.11	7.00
+planet	space	7.92	5.85
+planet	astronomer	7.94	5.20
+precedent	example	5.85	7.20
+precedent	information	3.85	6.41
+precedent	cognition	2.81	5.48
+precedent	law	6.65	6.25
+precedent	collection	2.50	5.13
+precedent	group	1.77	5.86
+precedent	antecedent	6.04	5.28
+cup	coffee	6.58	5.81
+cup	tableware	6.85	5.00
+cup	article	2.40	4.64
+cup	artifact	2.92	4.91
+cup	object	3.69	4.90
+cup	entity	2.15	5.50
+cup	drink	7.25	5.70
+cup	food	5.00	5.32
+cup	substance	1.92	5.06
+cup	liquid	5.90	4.96
+jaguar	cat	7.42	6.12
+jaguar	car	7.27	7.24
+energy	secretary	1.81	5.69
+secretary	senate	5.06	7.75
+energy	laboratory	5.09	5.63
+computer	laboratory	6.78	6.14
+weapon	secret	6.06	5.87
+FBI	fingerprint	6.94	5.00
+FBI	investigation	8.31	5.00
+investigation	effort	4.59	7.99
+Mars	water	2.94	5.00
+Mars	scientist	5.63	5.00
+news	report	8.16	7.41
+canyon	landscape	7.53	4.69
+image	surface	4.56	6.72
+discovery	space	6.34	4.61
+water	seepage	6.56	5.00
+sign	recess	2.38	3.43
+Wednesday	news	2.22	5.00
+mile	kilometer	8.66	7.44
+computer	news	4.47	6.03
+territory	surface	5.34	6.77
+atmosphere	landscape	3.69	5.68
+president	medal	3.00	5.94
+war	troops	8.13	5.50
+record	number	6.31	6.22
+skin	eye	6.22	7.08
+Japanese	American	6.50	5.00
+theater	history	3.91	5.57
+volunteer	motto	2.56	5.92
+prejudice	recognition	3.00	4.98
+decoration	valor	5.63	6.99
+century	year	7.59	5.37
+century	nation	3.16	5.01
+delay	racism	1.19	5.82
+delay	news	3.31	3.67
+minister	party	6.63	5.68
+peace	plan	4.75	5.94
+minority	peace	3.69	4.79
+attempt	peace	4.25	4.62
+government	crisis	6.56	7.16
+deployment	departure	4.25	4.90
+deployment	withdrawal	5.88	5.50
+energy	crisis	5.94	5.19
+announcement	news	7.56	4.97
+announcement	effort	2.75	7.24
+stroke	hospital	7.03	5.43
+disability	death	5.47	4.97
+victim	emergency	6.47	4.97
+treatment	recovery	7.91	6.24
+journal	association	4.97	7.06
+doctor	personnel	5.00	3.90
+doctor	liability	5.19	5.19
+liability	insurance	7.03	6.73
+school	center	3.44	7.41
+reason	hypertension	2.31	5.02
+reason	criterion	5.91	8.49
+hundred	percent	7.38	4.30
+Harvard	Yale	8.13	5.00
+hospital	infrastructure	4.63	6.10
+death	row	5.25	4.54
+death	inmate	5.03	3.03
+lawyer	evidence	6.69	4.68
+life	death	7.88	8.38
+life	term	4.50	4.89
+word	similarity	4.75	4.62
+board	recommendation	4.47	7.51
+governor	interview	3.25	4.47
+OPEC	country	5.63	5.00
+peace	atmosphere	3.69	4.81
+peace	insurance	2.94	5.29
+territory	kilometer	5.28	5.07
+travel	activity	5.00	5.30
+competition	price	6.44	5.65
+consumer	confidence	4.13	5.88
+consumer	energy	4.75	6.98
+problem	airport	2.38	3.91
+car	flight	4.94	6.15
+credit	card	8.06	5.27
+credit	information	5.31	5.83
+hotel	reservation	8.03	5.44
+grocery	money	5.94	5.82
+registration	arrangement	6.00	4.34
+arrangement	accommodation	5.41	6.63
+month	hotel	1.81	4.69
+type	kind	8.97	9.20
+arrival	hotel	6.00	5.15
+bed	closet	6.72	5.59
+closet	clothes	8.00	5.11
+situation	conclusion	4.81	6.76
+situation	isolation	3.88	5.72
+impartiality	interest	5.16	6.48
+direction	combination	2.25	4.92
+street	place	6.44	7.36
+street	avenue	8.88	8.91
+street	block	6.88	5.75
+street	children	4.94	4.98
+listing	proximity	2.56	4.52
+listing	category	6.38	4.62
+cell	phone	7.81	6.93
+production	hike	1.75	5.77
+benchmark	index	4.25	5.25
+media	trading	3.88	5.24
+media	gain	2.88	5.34
+dividend	payment	7.63	6.64
+dividend	calculation	6.48	5.50
+calculation	computation	8.44	7.46
+currency	market	7.50	6.40
+OPEC	oil	8.59	5.00
+oil	stock	6.34	6.98
+announcement	production	3.38	4.95
+announcement	warning	6.00	6.70
+profit	warning	3.88	4.73
+profit	loss	7.63	5.36
+dollar	yen	7.78	6.51
+dollar	buck	9.22	4.18
+dollar	profit	7.38	5.88
+dollar	loss	6.09	4.57
+computer	software	8.50	9.23
+network	hardware	8.31	8.37
+phone	equipment	7.13	6.87
+equipment	maker	5.91	4.64
+luxury	car	6.47	6.95
+five	month	3.38	4.75
+report	gain	3.63	5.65
+investor	earning	7.13	4.72
+liquid	water	7.89	8.49
+baseball	season	5.97	7.61
+game	victory	7.03	5.59
+game	team	7.69	8.48
+marathon	sprint	7.47	4.00
+game	series	6.19	9.04
+game	defeat	6.97	4.53
+seven	series	3.56	5.01
+seafood	sea	7.47	4.57
+seafood	food	8.34	7.04
+seafood	lobster	8.70	7.60
+lobster	food	7.81	5.82
+lobster	wine	5.70	7.26
+food	preparation	6.22	8.35
+video	archive	6.34	7.01
+start	year	4.06	5.22
+start	match	4.47	6.86
+game	round	5.97	8.03
+boxing	round	7.61	6.89
+championship	tournament	8.36	9.05
+fighting	defeating	7.41	6.76
+line	insurance	2.69	4.59
+day	summer	3.94	6.60
+summer	drought	7.16	6.69
+summer	nature	5.63	4.18
+day	dawn	7.53	4.81
+nature	environment	8.31	5.83
+environment	ecology	8.81	6.20
+nature	man	6.25	5.34
+man	woman	8.30	8.12
+man	governor	5.25	5.25
+murder	manslaughter	8.53	6.37
+soap	opera	7.94	5.74
+opera	performance	6.88	6.58
+life	lesson	5.94	4.72
+focus	life	4.06	5.63
+production	crew	6.25	5.09
+television	film	7.72	9.19
+lover	quarrel	6.19	6.18
+viewer	serial	2.97	6.71
+possibility	girl	1.94	3.88
+population	development	3.75	5.58
+morality	importance	3.31	6.07
+morality	marriage	3.69	6.34
+Mexico	Brazil	7.44	5.00
+gender	equality	6.41	5.91
+change	attitude	5.44	6.30
+family	planning	6.25	4.55
+opera	industry	2.63	6.68
+sugar	approach	0.88	5.17
+practice	institution	3.19	5.10
+ministry	culture	4.69	4.98
+problem	challenge	6.75	6.27
+size	prominence	5.31	5.42
+country	citizen	7.31	5.68
+planet	people	5.75	5.72
+development	issue	3.97	6.38
+experience	music	3.47	5.72
+music	project	3.63	5.11
+glass	metal	5.56	8.66
+aluminum	metal	7.83	6.84
+chance	credibility	3.88	5.36
+exhibit	memorabilia	5.31	5.31
+concert	virtuoso	6.81	7.15
+rock	jazz	7.59	8.87
+museum	theater	7.19	7.97
+observation	architecture	4.38	5.72
+space	world	6.53	5.26
+preservation	world	6.19	5.02
+admission	ticket	7.69	6.18
+shower	thunderstorm	6.31	5.33
+shower	flood	6.03	5.16
+weather	forecast	8.34	6.23
+disaster	area	6.25	6.71
+governor	office	6.34	7.15
+architecture	century	3.78	5.14

@@ -177,10 +177,11 @@ def get_sgns_result(has_train=True, epoch_num=5, model_path='model/SGNS.pth', te
             continue
         word1 = line[1]
         word2 = line[2]
+        true_result = line[3]
         sim_sgns = my_sgns.get_cos_sim(word1, word2)
-        f.write(f'{word1}\t{word2}\t{sim_sgns:.4f}\n')
+        f.write(f'{word1}\t{word2}\t{true_result}\t{(sim_sgns + 1) * 5:.2f}\n')
     f.close()
 
 
 if __name__ == "__main__":
-    get_sgns_result(has_train=False, test_path='data/wordsim353_agreed.txt', epoch_num=20)
+    get_sgns_result(has_train=True, test_path='data/wordsim353_agreed.txt', epoch_num=20, model_path='SGNS.pth')

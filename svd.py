@@ -151,10 +151,11 @@ def get_svd_result(has_train=True, vocab_max_size=10000, vector_dim=100, window_
             continue
         word1 = line[1]
         word2 = line[2]
+        true_result = line[3]
         sim_sgns = svd.get_cos_sim(word1, word2)
-        f.write(f'{word1}\t{word2}\t{sim_sgns:.4f}\n')
+        f.write(f'{word1}\t{word2}\t{true_result}\t{(sim_sgns + 1) * 5:.2f}\n')
     f.close()
 
 
 if __name__ == "__main__":
-    get_svd_result(has_train=False, test_path='data/wordsim353_agreed.txt', vocab_max_size=100000)
+    get_svd_result(has_train=True, test_path='data/wordsim353_agreed.txt', vocab_max_size=100000)
