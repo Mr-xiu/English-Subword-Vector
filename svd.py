@@ -124,7 +124,7 @@ def get_svd_result(has_train=True, vocab_max_size=100000, vector_dim=100, window
                    test_path='data/wordsim353_agreed.txt',
                    result_path='data/svd_result.txt'):
     """
-    在pku_sim_test.txt中测试训练模型表现的方法
+    在wordsim353_agreed.txt中测试训练模型表现的方法
     :param has_train: 若为True，表示模型已经训练成功，只需在内存中加载svd词向量矩阵
     :param vocab_max_size: 词表最大的大小
     :param vector_dim: 词向量的维度
@@ -159,7 +159,7 @@ def get_svd_result(has_train=True, vocab_max_size=100000, vector_dim=100, window
     f.close()
 
 
-def get_10_most_similar(word,has_train=True, vocab_max_size=100000, vector_dim=100, window_size=5, model_path='model/svd.npy'):
+def get_10_most_similar(word, has_train=True, vocab_max_size=100000, vector_dim=100, window_size=5, model_path='model/svd.npy'):
     """
     测试与输入词十个最相似词的方法
     :param word: 输入的词
@@ -182,10 +182,10 @@ def get_10_most_similar(word,has_train=True, vocab_max_size=100000, vector_dim=1
     q = PriorityQueue()  # 最相似的词的序列
     for i in range(svd.vocab_size):
         word2 = svd.id2word_dict[i]
-        if word2==word:
+        if word2 == word:
             continue
         sim_sgns = svd.get_cos_sim(word, word2)
-        q.put((-sim_sgns,word2))
+        q.put((-sim_sgns, word2))
     print(f'与{word}最相似的十个词为：')
     for i in range(10):
         next_item = q.get()

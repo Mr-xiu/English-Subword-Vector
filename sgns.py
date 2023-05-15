@@ -1,5 +1,6 @@
 import math
 import random
+from queue import PriorityQueue
 
 import numpy as np
 from torch.utils.data import DataLoader
@@ -148,7 +149,7 @@ class SGNS:
 def get_sgns_result(has_train=True, epoch_num=5, model_path='model/SGNS.pth', test_path='data/wordsim353_agreed.txt',
                     result_path='data/sgns_result.txt'):
     """
-    在pku_sim_test.txt中测试训练模型表现的方法
+    在wordsim353_agreed.txt中测试训练模型表现的方法
     :param has_train: 若为True，表示模型已经训练成功，不进行二次采样与构建dataloader（省内存）
     :param epoch_num: 训练的轮数
     :param model_path: 模型的位置
@@ -183,5 +184,39 @@ def get_sgns_result(has_train=True, epoch_num=5, model_path='model/SGNS.pth', te
     f.close()
 
 
+def get_10_most_similar(word, has_train=True, epoch_num=5, model_path='model/SGNS.pth'):
+    """
+    测试与输入词十个最相似词的方法
+    :param word: 输入的词
+    :param has_train: 若为True，表示模型已经训练成功，只需在内存中加载svd词向量矩阵
+    :param epoch_num: 训练的轮数
+    :param model_path: svd词向量矩阵的位置
+    """
+    if not has_train:
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        print(f'device:{device}')
+        my_sgns = SGNS(device='cpu', has_train=False)
+        my_sgns.train(epoch_num, save_path=model_path)
+    else:
+        # 读取模型
+        my_sgns = SGNS(device='cpu', has_train=True)
+        my_sgns.load_model(model_path)
+    if word not in my_sgns.word2id_dict:
+        print(f'error:{word}没有在词表中~')
+        return
+    q = PriorityQueue()  # 最相似的词的序列
+    for i in range(my_sgns.vocab_size):
+        word2 = my_sgns.id2word_dict[i]
+        if word2 == word:
+            continue
+        sim_sgns = my_sgns.get_cos_sim(word, word2)
+        q.put((-sim_sgns, word2))
+    print(f'与{word}最相似的十个词为：')
+    for i in range(10):
+        next_item = q.get()
+        print(f'{next_item[1]}\t{-next_item[0]:.2f}')
+
+
 if __name__ == "__main__":
-    get_sgns_result(has_train=True, test_path='data/wordsim353_agreed.txt', epoch_num=20, model_path='SGNS.pth')
+    # get_sgns_result(has_train=True, test_path='data/wordsim353_agreed.txt', epoch_num=20, model_path='modle/SGNS.pth')
+    get_10_most_similar('study')
