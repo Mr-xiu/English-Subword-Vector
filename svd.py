@@ -94,7 +94,7 @@ class SVD:
         # 先转换为稀疏矩阵
         co_matrix = scipy.sparse.csr_matrix(co_matrix).asfptype()
         U, S, V = scipy.sparse.linalg.svds(co_matrix, k=vector_dim)
-
+        print(f'计算了{len(S)}个奇异值，计算的奇异值之和为：{np.sum(S)}~')
         self.word_vectors = U
 
         np.save(save_path, np.array(self.word_vectors))
@@ -193,5 +193,5 @@ def get_10_most_similar(word, has_train=True, vocab_max_size=100000, vector_dim=
 
 
 if __name__ == "__main__":
-    # get_svd_result(has_train=True, test_path='data/wordsim353_agreed.txt', vocab_max_size=100000)
-    get_10_most_similar('study')
+    get_svd_result(has_train=False, test_path='data/wordsim353_agreed.txt', vocab_max_size=100000)
+    # get_10_most_similar('study')
